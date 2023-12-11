@@ -76,8 +76,7 @@ namespace ACP
                 cmd.Parameters.AddWithValue("@TID", TID);
                 cmd.Parameters.AddWithValue("@suppDesc", suppDesc);
                 cmd.Parameters.AddWithValue("@agent", agent);
-                cmd.Parameters.AddWithValue("@infoCatID", infoCatID);
-               // cmd.Parameters.AddWithValue("@infoCatID", infoCatID);
+                cmd.Parameters.AddWithValue("@infoCatID", "1");
                 cmd.Parameters.AddWithValue("@addressID", addressID);
                 cmd.ExecuteNonQuery();
                 conn.Close();
