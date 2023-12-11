@@ -1,0 +1,42 @@
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\bin\Debug\ACP.exe.config
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\bin\Debug\ACP.exe
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\bin\Debug\ACP.pdb
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.Properties.Resources.resources
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.csproj.GenerateResource.Cache
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.exe
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.pdb
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.frmManageProduct.resources
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.frmAddProduct.resources
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.frMain.resources
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.frmCatHierarchy.resources
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.frmInfoCat.resources
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.frmProdMgt.resources
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.frmSupplierMgt.resources
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.frmAddSupplier.resources
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.frmAddress.resources
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.frmRecordType.resources
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.frmviewSupplier.resources
+C:\Users\ietora\Desktop\VS 2013\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.frmListOfAddress.resources
+\\192.168.8.70\acp (ace centerpoint)\ACP\bin\Debug\ACP.exe.config
+\\192.168.8.70\acp (ace centerpoint)\ACP\bin\Debug\ACP.exe
+\\192.168.8.70\acp (ace centerpoint)\ACP\bin\Debug\ACP.pdb
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.frmAddress.resources
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.frmAddSupplier.resources
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.frmListOfAddress.resources
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.frmProdMgt.resources
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.frmRecordType.resources
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.frmSupplierMgt.resources
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.frmviewSupplier.resources
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.frmInfoCat.resources
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.frmAddProduct.resources
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.frMain.resources
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.frmCatHierarchy.resources
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.frmManageProduct.resources
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.Properties.Resources.resources
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.csproj.GenerateResource.Cache
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.exe
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.pdb
+\\192.168.8.70\acp (ace centerpoint)\ACP\obj\Debug\ACP.csprojResolveAssemblyReference.cache
+C:\Users\ietora\Desktop\Team Project\ACP (ACE CENTERPOINT)\ACP\bin\Debug\ACP.exe.config
+C:\Users\ietora\Desktop\Team Project\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.exe
+C:\Users\ietora\Desktop\Team Project\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.pdb

@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E99B7734-F2B5-4616-914D-DADB4D2C3741}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ACP</RootNamespace>
+    <AssemblyName>ACP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CatHierarchyClass.cs" />
+    <Compile Include="dbClass.cs" />
+    <Compile Include="frmAddress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddress.Designer.cs">
+      <DependentUpon>frmAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddSupplier.Designer.cs">
+      <DependentUpon>frmAddSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListOfAddress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListOfAddress.Designer.cs">
+      <DependentUpon>frmListOfAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProdMgt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProdMgt.Designer.cs">
+      <DependentUpon>frmProdMgt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecordType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecordType.Designer.cs">
+      <DependentUpon>frmRecordType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSupplierMgt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSupplierMgt.Designer.cs">
+      <DependentUpon>frmSupplierMgt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmviewSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmviewSupplier.Designer.cs">
+      <DependentUpon>frmviewSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Id.cs" />
+    <Compile Include="frmInfoCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInfoCat.Designer.cs">
+      <DependentUpon>frmInfoCat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="supplierClass.cs" />
+    <Compile Include="frmAddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddProduct.Designer.cs">
+      <DependentUpon>frmAddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frMain.Designer.cs">
+      <DependentUpon>frMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCatHierarchy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCatHierarchy.Designer.cs">
+      <DependentUpon>frmCatHierarchy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManageProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageProduct.Designer.cs">
+      <DependentUpon>frmManageProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="productCreationClass.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="treeview.cs" />
+    <EmbeddedResource Include="frmAddress.resx">
+      <DependentUpon>frmAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddSupplier.resx">
+      <DependentUpon>frmAddSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListOfAddress.resx">
+      <DependentUpon>frmListOfAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProdMgt.resx">
+      <DependentUpon>frmProdMgt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecordType.resx">
+      <DependentUpon>frmRecordType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSupplierMgt.resx">
+      <DependentUpon>frmSupplierMgt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmviewSupplier.resx">
+      <DependentUpon>frmviewSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInfoCat.resx">
+      <DependentUpon>frmInfoCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddProduct.resx">
+      <DependentUpon>frmAddProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frMain.resx">
+      <DependentUpon>frMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCatHierarchy.resx">
+      <DependentUpon>frmCatHierarchy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageProduct.resx">
+      <DependentUpon>frmManageProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
