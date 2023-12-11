@@ -17,11 +17,12 @@ namespace ACP
         {
             InitializeComponent();
             dgvAddress.Focus();
-            btnUpdate.Hide();
+           
         }
 
         private void btnadd_Click(object sender, EventArgs e)
         {
+            
             frmAddress frAddress = new frmAddress();
             if (frAddress.ShowDialog() == DialogResult.OK)
             {
@@ -73,9 +74,9 @@ namespace ACP
             row["infoCatDesc"] = "";
             row["infoCatID"] = DBNull.Value;
             dt.Rows.InsertAt(row, 0);
-            cbInfoCat.DisplayMember = "infoCatDesc";
-            cbInfoCat.ValueMember = "infoCatID";
-            cbInfoCat.DataSource = dt;
+         //   cbInfoCat.DisplayMember = "infoCatDesc";
+        //    cbInfoCat.ValueMember = "infoCatID";
+         //   cbInfoCat.DataSource = dt;
 
         }
 
