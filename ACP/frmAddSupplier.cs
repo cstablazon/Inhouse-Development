@@ -17,9 +17,7 @@ namespace ACP
         {
             InitializeComponent();
             dgvAddress.Focus();
-
-
-
+            btnUpdate.Hide();
         }
 
         private void btnadd_Click(object sender, EventArgs e)
@@ -28,16 +26,16 @@ namespace ACP
             if (frAddress.ShowDialog() == DialogResult.OK)
             {
                 string addressID = supClass.addressID().ToString();
+                string purpose = frAddress.cbPurpose.SelectedValue.ToString(); ;
                 string desc = frAddress.txtAddDesc.Text;
                 string address = frAddress.txtAddress.Text;
                 string city = frAddress.txtCity.Text;
                 string province = frAddress.txtProvince.Text;
                 string remarks = frAddress.txtRemarks.Text;
 
-
-                supClass.address(addressID, desc, address, city, province, remarks);
-
-            }
+                 supClass.address(addressID, purpose, desc, address, city, province, remarks);
+                }
+            
         }
 
         private void lbNew_Click(object sender, EventArgs e)
@@ -95,22 +93,36 @@ namespace ACP
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+           // this.DialogResult = DialogResult.OK;
+          //  this.Close();
+
+            
         }
 
         private void btnLink_Click(object sender, EventArgs e)
         {
             frmListOfAddress addList = new frmListOfAddress();
-            addList.Show();
-            this.Hide();
+         
+            if (addList.ShowDialog() == DialogResult.OK)
+            {
+                foreach (DataGridViewRow row in addList.dgvList.SelectedRows)
+                {
+                    string id = row.Cells[0].Value.ToString();
 
+                    bool idExists = dgvAddress.Rows.Cast<DataGridViewRow>()
+                           .Any(r => r.Cells[0].Value.ToString() == id);
+                    if (!idExists)
+                    {
+                        DataGridViewRow clonedRow = (DataGridViewRow)row.Clone();
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            clonedRow.Cells[cell.ColumnIndex].Value = cell.Value;
+                        }
 
-            //if (addList.ShowDialog() == DialogResult.OK)
-            //{
-            //    //string[] data = new string[] {Id.id, Id.description, Id.address, Id.date_created };
-            //    //dgvAddress.Rows.Insert(0, data);
-            //}
+                        dgvAddress.Rows.Add(clonedRow);
+                    }
+                }
+            }
         }
     }
 }

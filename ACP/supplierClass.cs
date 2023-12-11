@@ -16,6 +16,10 @@ namespace ACP
         {
             return db.getRecord("select * from infoCategory");
         }
+        public DataTable purpose() {
+
+            return db.getRecord("select * from purpose");
+        }
 
 
         //Address CRUD Operation
@@ -28,7 +32,7 @@ namespace ACP
         {
             return db.getRecord("select addressID as 'Address ID', [desc] as 'Description', LTRIM(RTRIM(REPLACE(ISNULL([address],' ')+', '+ISNULL (city,' ')+', '+ISNULL(province,' '), '  ',' '))) as 'Address', transDate as 'Date Created' from vwAddress");
         }
-        public void address(string AddressID,string desc,string address, string city,string province, string remarks ) {
+        public void address(string AddressID,string PID,string desc,string address, string city,string province, string remarks ) {
             try
             {
                 SqlConnection conn = db.getConnection();
@@ -39,6 +43,7 @@ namespace ACP
                cmd.Parameters.AddWithValue("@Id", "");
                cmd.Parameters.AddWithValue("@action", "INSERT");
                cmd.Parameters.AddWithValue("@AddressID", AddressID);
+               cmd.Parameters.AddWithValue("@PID", PID);
                cmd.Parameters.AddWithValue("@addressDesc", desc);
                cmd.Parameters.AddWithValue("@address", address);
                cmd.Parameters.AddWithValue("@city", city);
