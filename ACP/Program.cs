@@ -16,7 +16,7 @@ namespace ACP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAddSupplier());
+            Application.Run(new frMain());
         }
     }
 }
