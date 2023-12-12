@@ -90,6 +90,7 @@
             this.dgvSupplier.TabIndex = 0;
             this.dgvSupplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSupplier_CellClick);
             this.dgvSupplier.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSupplier_CellDoubleClick);
+            this.dgvSupplier.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvSupplier_DataBindingComplete);
             // 
             // btnRefresh
             // 

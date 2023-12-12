@@ -57,3 +57,22 @@ C:\Users\ietora\Desktop\Team Project\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.frm
 C:\Users\ietora\Desktop\Team Project\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.frmManageProduct.resources
 C:\Users\ietora\Desktop\Team Project\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.Properties.Resources.resources
 C:\Users\ietora\Desktop\Team Project\ACP (ACE CENTERPOINT)\ACP\obj\Debug\ACP.csproj.GenerateResource.Cache
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.frmAddress.resources
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.frmAddSupplier.resources
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.frmListOfAddress.resources
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.frmProdMgt.resources
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.frmRecordType.resources
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.frmSupplierMgt.resources
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.frmInfoCat.resources
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.frmAddProduct.resources
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.frMain.resources
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.frmCatHierarchy.resources
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.frmManageProduct.resources
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.Properties.Resources.resources
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.csproj.GenerateResource.Cache
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\bin\Debug\ACP.exe.config
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\bin\Debug\ACP.exe
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\bin\Debug\ACP.pdb
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.exe
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.pdb
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.btnDelete.resources

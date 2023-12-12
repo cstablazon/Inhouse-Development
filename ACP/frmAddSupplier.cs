@@ -35,7 +35,7 @@ namespace ACP
                 string remarks = frAddress.txtRemarks.Text;
 
                  supClass.address(addressID, purpose, desc, address, city, province, remarks);
-                }
+           }
             
         }
 
@@ -66,6 +66,8 @@ namespace ACP
             cbType.ValueMember = "TID";
             cbType.DataSource = dt;
 
+            //Id.rTypeID = cbType.GetItemText(cbType.SelectedValue);
+
         }
         public void InfoCategory()
         {
@@ -94,8 +96,15 @@ namespace ACP
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-           // this.DialogResult = DialogResult.OK;
-          //  this.Close();
+           
+            foreach (DataGridViewRow row in dgvAddress.Rows)
+            {
+                string SuppID = txtSupCode.Text;
+                string addressID = row.Cells["addressID"].Value.ToString();
+                supClass.insertMultiAddress(SuppID, addressID);
+            }
+            this.DialogResult = DialogResult.OK;
+            this.Close();
 
             
         }
@@ -123,6 +132,14 @@ namespace ACP
                         dgvAddress.Rows.Add(clonedRow);
                     }
                 }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if(dgvAddress.SelectedRows.Count > 0)
+            {
+                dgvAddress.Rows.RemoveAt(dgvAddress.SelectedRows[0].Index);
             }
         }
     }

@@ -40,42 +40,17 @@ namespace ACP
         private void dgvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             frmAddSupplier addSupp = new frmAddSupplier();
-          //  DataGridViewRow row = this.dgvList.Rows[e.RowIndex];
-            //DataGridViewRow rows = (DataGridViewRow)addSupp.dgvAddress.Rows[1].Clone();
-            //rows.Cells["Address ID"].Value = row.Cells["Address ID"].Value.ToString();
-            //rows.Cells["Description"].Value = row.Cells["Description"].Value.ToString();
-            //rows.Cells["Address"].Value = row.Cells["Address"].Value.ToString();
-            //rows.Cells["Date Created"].Value = row.Cells["Date Created"].Value.ToString();
-            //////addSupp.dgvAddress.Rows.Add(rows);
-            //Id.id = row.Cells["Address ID"].Value.ToString();
-            //Id.description = row.Cells["Description"].Value.ToString();
-            //Id.address = row.Cells["Address"].Value.ToString();
-            //Id.date_created = row.Cells["Date Created"].Value.ToString();
-            //addSupp.dgvAddress.Rows.Add(row.Cells["Address ID"].Value.ToString(), row.Cells["Description"].Value.ToString(), row.Cells["Address"].Value.ToString(), row.Cells["Date Created"].Value.ToString());
-            //addSupp.dgvAddress.Refresh();
-            //string[] data = new string[] { Id.id, Id.description, Id.address, Id.date_created };
-            //addSupp.dgvAddress.Rows.Insert(0, data);
-            //this.Hide();
-            //foreach (DataGridViewRow row in dgvList.SelectedRows)
-            //{
-            //    // Get the values from each cell of the selected row
-            //    List<string> cellValues = new List<string>();
-            //    for (int i = 0; i < row.Cells.Count; i++)
-            //    {
-            //        cellValues.Add(row.Cells[i].Value.ToString());
-            //    }
-
-            //    // Add a new row to the destination DataGridView
-            //    int rowIndex = addSupp.dgvAddress.Rows.Add();
-            //    for (int i = 0; i < addSupp.dgvAddress.Columns.Count; i++)
-            //    {
-            //        addSupp.dgvAddress.Rows[rowIndex].Cells[i].Value = cellValues[i];
-            //    }
-            //    addSupp.Show();
-            //}
+            supClass.insertMultiAddress(Id.suppID, Id.addressID);
             this.DialogResult = DialogResult.OK;
             this.Close();
                 
+        }
+
+        private void dgvList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dgvList.Rows[e.RowIndex];
+
+            Id.addressID = row.Cells["Address ID"].Value.ToString();
         }
     }
 }
