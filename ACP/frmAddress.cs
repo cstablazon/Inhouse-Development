@@ -59,5 +59,10 @@ namespace ACP
             cbPurpose.DataSource = dt;
         
         }
+
+        private void frmAddress_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

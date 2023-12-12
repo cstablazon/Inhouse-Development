@@ -30,7 +30,14 @@ namespace ACP
         }
         public DataTable fetch_address() 
         {
-            return db.getRecord("select addressID as 'Address ID', [desc] as 'Description', LTRIM(RTRIM(REPLACE(ISNULL([address],' ')+', '+ISNULL (city,' ')+', '+ISNULL(province,' '), '  ',' '))) as 'Address', transDate as 'Date Created' from vwAddress");
+            return db.getRecord("select addressID as 'Address ID', [desc] as 'Description', [address] as 'Address', city as 'City', province as 'Province', transDate as 'Date Created' from vwAddress");
+        }
+
+        public DataTable fetch_suppAddress()
+        {
+
+            return db.getRecord("SELECT * FROM fc_sAddress('" + Id.suppID + "')");
+
         }
         public void address(string AddressID,string PID,string desc,string address, string city,string province, string remarks ) {
             try
@@ -61,7 +68,7 @@ namespace ACP
         }
 
         //Supplier Crud 
-        public void insertSupplier(string suppID, string TID, string suppDesc, string agent, string infoCatID, string addressID)
+        public void insertSupplier(string suppID, string TID, string suppDesc, string agent)
         {
             try
             {
@@ -76,13 +83,62 @@ namespace ACP
                 cmd.Parameters.AddWithValue("@TID", TID);
                 cmd.Parameters.AddWithValue("@suppDesc", suppDesc);
                 cmd.Parameters.AddWithValue("@agent", agent);
-                cmd.Parameters.AddWithValue("@infoCatID", "1");
-                cmd.Parameters.AddWithValue("@addressID", addressID);
+                //cmd.Parameters.AddWithValue("@infoCatID", "1");
+                //cmd.Parameters.AddWithValue("@addressID", addressID);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 MessageBox.Show("Successfully Inserted", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //Add supplier multi address
+        public void insertMultiAddress(string suppID, string addressID)
+        {
+            try
+            {
+                SqlConnection conn = db.getConnection();
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_Supplier", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@desc", "SUPPLIERMULTIADD");
+                cmd.Parameters.AddWithValue("@Id", "");
+                cmd.Parameters.AddWithValue("@action", "INSERT");
+                cmd.Parameters.AddWithValue("@suppID", suppID);
+                cmd.Parameters.AddWithValue("@infoCatID", "1");
+                cmd.Parameters.AddWithValue("@addressID", addressID);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+
+
+        //Delete supplier address
+        public void delete_suppAddress(string suppID, string addressID)
+        {
+            try
+            {
+                SqlConnection conn = db.getConnection();
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_Supplier", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@desc", "SUPPADDRESS");
+                cmd.Parameters.AddWithValue("@Id", "");
+                cmd.Parameters.AddWithValue("@action", "DELETE");
+                cmd.Parameters.AddWithValue("@suppID", suppID);
+                cmd.Parameters.AddWithValue("@addressID", addressID);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("Successfully Deleted", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

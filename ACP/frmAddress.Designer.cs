@@ -128,7 +128,7 @@
             this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreate.FlatAppearance.BorderSize = 0;
             this.btnCreate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(686, 170);
+            this.btnCreate.Location = new System.Drawing.Point(352, 170);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 34);
             this.btnCreate.TabIndex = 66;
@@ -142,7 +142,7 @@
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(686, 170);
+            this.btnUpdate.Location = new System.Drawing.Point(352, 170);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 34);
             this.btnUpdate.TabIndex = 67;
@@ -192,9 +192,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtAddress);
-            this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.cbPurpose);
-            this.groupBox1.Controls.Add(this.btnCreate);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtAddDesc);
@@ -205,6 +203,8 @@
             this.groupBox1.Controls.Add(this.txtCity);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtProvince);
+            this.groupBox1.Controls.Add(this.btnCreate);
+            this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(22, 16);
             this.groupBox1.Name = "groupBox1";
@@ -217,12 +217,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 250);
+            this.ClientSize = new System.Drawing.Size(845, 376);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmAddress";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Address Information";
+            this.Load += new System.EventHandler(this.frmAddress_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
