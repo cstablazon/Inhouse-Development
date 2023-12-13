@@ -47,10 +47,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAddress = new System.Windows.Forms.TabPage();
             this.dgvAddress = new System.Windows.Forms.DataGridView();
-            this.addressID = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLink = new System.Windows.Forms.Button();
@@ -65,6 +61,12 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.addressID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.city = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.province = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabAddress.SuspendLayout();
@@ -276,8 +278,10 @@
             this.dgvAddress.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAddress.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.addressID,
-            this.description,
+            this.desc,
             this.address,
+            this.city,
+            this.province,
             this.transDate});
             this.dgvAddress.Location = new System.Drawing.Point(6, 53);
             this.dgvAddress.MultiSelect = false;
@@ -287,32 +291,6 @@
             this.dgvAddress.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAddress.Size = new System.Drawing.Size(849, 122);
             this.dgvAddress.TabIndex = 22;
-            // 
-            // addressID
-            // 
-            this.addressID.HeaderText = "Address ID";
-            this.addressID.Name = "addressID";
-            this.addressID.ReadOnly = true;
-            this.addressID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.addressID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // description
-            // 
-            this.description.HeaderText = "Description";
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            // 
-            // address
-            // 
-            this.address.HeaderText = "Address";
-            this.address.Name = "address";
-            this.address.ReadOnly = true;
-            // 
-            // transDate
-            // 
-            this.transDate.HeaderText = "Date Created";
-            this.transDate.Name = "transDate";
-            this.transDate.ReadOnly = true;
             // 
             // panel3
             // 
@@ -527,6 +505,42 @@
             this.imageList1.Images.SetKeyName(0, "placeholder.png");
             this.imageList1.Images.SetKeyName(1, "contact.png");
             // 
+            // addressID
+            // 
+            this.addressID.HeaderText = "Address ID";
+            this.addressID.Name = "addressID";
+            this.addressID.ReadOnly = true;
+            // 
+            // desc
+            // 
+            this.desc.HeaderText = "Description";
+            this.desc.Name = "desc";
+            this.desc.ReadOnly = true;
+            // 
+            // address
+            // 
+            this.address.HeaderText = "Address";
+            this.address.Name = "address";
+            this.address.ReadOnly = true;
+            // 
+            // city
+            // 
+            this.city.HeaderText = "City";
+            this.city.Name = "city";
+            this.city.ReadOnly = true;
+            // 
+            // province
+            // 
+            this.province.HeaderText = "Province";
+            this.province.Name = "province";
+            this.province.ReadOnly = true;
+            // 
+            // transDate
+            // 
+            this.transDate.HeaderText = "Date Created";
+            this.transDate.Name = "transDate";
+            this.transDate.ReadOnly = true;
+            // 
             // frmAddSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -584,11 +598,13 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         public System.Windows.Forms.DataGridView dgvAddress;
-        private System.Windows.Forms.DataGridViewComboBoxColumn addressID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn transDate;
         public System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn city;
+        private System.Windows.Forms.DataGridViewTextBoxColumn province;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transDate;
     }
 }
