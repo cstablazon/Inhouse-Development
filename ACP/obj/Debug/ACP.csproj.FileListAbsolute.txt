@@ -76,3 +76,4 @@ C:\Users\cstablazon\Documents\GitHub\ACP\ACP\bin\Debug\ACP.pdb
 C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.exe
 C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.pdb
 C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.btnDelete.resources
+C:\Users\cstablazon\Documents\GitHub\ACP\ACP\obj\Debug\ACP.csprojResolveAssemblyReference.cache
