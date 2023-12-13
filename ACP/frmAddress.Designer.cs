@@ -50,7 +50,7 @@
             // 
             this.txtAddDesc.BackColor = System.Drawing.Color.White;
             this.txtAddDesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddDesc.Location = new System.Drawing.Point(26, 49);
+            this.txtAddDesc.Location = new System.Drawing.Point(247, 50);
             this.txtAddDesc.Name = "txtAddDesc";
             this.txtAddDesc.Size = new System.Drawing.Size(232, 25);
             this.txtAddDesc.TabIndex = 59;
@@ -59,7 +59,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 30);
+            this.label1.Location = new System.Drawing.Point(244, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 17);
             this.label1.TabIndex = 58;
@@ -172,7 +172,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(282, 29);
+            this.label6.Location = new System.Drawing.Point(23, 30);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 17);
             this.label6.TabIndex = 70;
@@ -184,7 +184,7 @@
             this.cbPurpose.Items.AddRange(new object[] {
             "Business",
             "Personal"});
-            this.cbPurpose.Location = new System.Drawing.Point(285, 49);
+            this.cbPurpose.Location = new System.Drawing.Point(26, 51);
             this.cbPurpose.Name = "cbPurpose";
             this.cbPurpose.Size = new System.Drawing.Size(190, 25);
             this.cbPurpose.TabIndex = 71;
