@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ACP
@@ -26,15 +21,18 @@ namespace ACP
             frmAddress frAddress = new frmAddress();
             if (frAddress.ShowDialog() == DialogResult.OK)
             {
-                string addressID = supClass.addressID().ToString();
-                string purpose = frAddress.cbPurpose.SelectedValue.ToString(); ;
-                string desc = frAddress.txtAddDesc.Text;
-                string address = frAddress.txtAddress.Text;
-                string city = frAddress.txtCity.Text;
-                string province = frAddress.txtProvince.Text;
-                string remarks = frAddress.txtRemarks.Text;
+                //string addressID = supClass.addressID().ToString();
+                //string purpose = frAddress.cbPurpose.SelectedValue.ToString(); ;
+                //string desc = frAddress.txtAddDesc.Text;
+                //string address = frAddress.txtAddress.Text;
+                //string city = frAddress.txtCity.Text;
+                //string province = frAddress.txtProvince.Text;
+                //string remarks = frAddress.txtRemarks.Text;
+                // supClass.address(addressID, purpose, desc, address, city, province, remarks);
 
-                 supClass.address(addressID, purpose, desc, address, city, province, remarks);
+                string result = supplierClass.FetchStatus;
+                MessageBox.Show(result);
+
            }
             
         }
@@ -141,6 +139,12 @@ namespace ACP
             {
                 dgvAddress.Rows.RemoveAt(dgvAddress.SelectedRows[0].Index);
             }
+        }
+
+        private void btnConAdd_Click(object sender, EventArgs e)
+        {
+            frmListOfContact listCon = new frmListOfContact();
+            listCon.ShowDialog();
         }
     }
 }

@@ -47,6 +47,12 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAddress = new System.Windows.Forms.TabPage();
             this.dgvAddress = new System.Windows.Forms.DataGridView();
+            this.addressID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.city = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.province = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLink = new System.Windows.Forms.Button();
@@ -56,17 +62,11 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnConAdd = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.addressID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.city = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.province = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabAddress.SuspendLayout();
@@ -292,6 +292,42 @@
             this.dgvAddress.Size = new System.Drawing.Size(849, 122);
             this.dgvAddress.TabIndex = 22;
             // 
+            // addressID
+            // 
+            this.addressID.HeaderText = "Address ID";
+            this.addressID.Name = "addressID";
+            this.addressID.ReadOnly = true;
+            // 
+            // desc
+            // 
+            this.desc.HeaderText = "Description";
+            this.desc.Name = "desc";
+            this.desc.ReadOnly = true;
+            // 
+            // address
+            // 
+            this.address.HeaderText = "Address";
+            this.address.Name = "address";
+            this.address.ReadOnly = true;
+            // 
+            // city
+            // 
+            this.city.HeaderText = "City";
+            this.city.Name = "city";
+            this.city.ReadOnly = true;
+            // 
+            // province
+            // 
+            this.province.HeaderText = "Province";
+            this.province.Name = "province";
+            this.province.ReadOnly = true;
+            // 
+            // transDate
+            // 
+            this.transDate.HeaderText = "Date Created";
+            this.transDate.Name = "transDate";
+            this.transDate.ReadOnly = true;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
@@ -416,7 +452,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.button3);
+            this.panel4.Controls.Add(this.btnConAdd);
             this.panel4.Controls.Add(this.button4);
             this.panel4.Controls.Add(this.button5);
             this.panel4.Controls.Add(this.button6);
@@ -426,23 +462,24 @@
             this.panel4.Size = new System.Drawing.Size(855, 41);
             this.panel4.TabIndex = 1;
             // 
-            // button3
+            // btnConAdd
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(79, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(70, 35);
-            this.button3.TabIndex = 33;
-            this.button3.Text = "Add";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnConAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConAdd.FlatAppearance.BorderSize = 0;
+            this.btnConAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
+            this.btnConAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btnConAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConAdd.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnConAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnConAdd.Image")));
+            this.btnConAdd.Location = new System.Drawing.Point(79, 3);
+            this.btnConAdd.Name = "btnConAdd";
+            this.btnConAdd.Size = new System.Drawing.Size(70, 35);
+            this.btnConAdd.TabIndex = 33;
+            this.btnConAdd.Text = "Add";
+            this.btnConAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConAdd.UseVisualStyleBackColor = true;
+            this.btnConAdd.Click += new System.EventHandler(this.btnConAdd_Click);
             // 
             // button4
             // 
@@ -505,42 +542,6 @@
             this.imageList1.Images.SetKeyName(0, "placeholder.png");
             this.imageList1.Images.SetKeyName(1, "contact.png");
             // 
-            // addressID
-            // 
-            this.addressID.HeaderText = "Address ID";
-            this.addressID.Name = "addressID";
-            this.addressID.ReadOnly = true;
-            // 
-            // desc
-            // 
-            this.desc.HeaderText = "Description";
-            this.desc.Name = "desc";
-            this.desc.ReadOnly = true;
-            // 
-            // address
-            // 
-            this.address.HeaderText = "Address";
-            this.address.Name = "address";
-            this.address.ReadOnly = true;
-            // 
-            // city
-            // 
-            this.city.HeaderText = "City";
-            this.city.Name = "city";
-            this.city.ReadOnly = true;
-            // 
-            // province
-            // 
-            this.province.HeaderText = "Province";
-            this.province.Name = "province";
-            this.province.ReadOnly = true;
-            // 
-            // transDate
-            // 
-            this.transDate.HeaderText = "Date Created";
-            this.transDate.Name = "transDate";
-            this.transDate.ReadOnly = true;
-            // 
             // frmAddSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -593,7 +594,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnConAdd;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;

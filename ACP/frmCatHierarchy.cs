@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
+using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -7,10 +9,10 @@ namespace ACP
 {
     public partial class frmCatHierarchy : Form
     {
-
         private TreeNode lastAddedNode = null;
         CatHierarchyClass cat = new CatHierarchyClass();
         int status = 1;
+        TextInfo txtInfo = CultureInfo.CurrentCulture.TextInfo;
         public frmCatHierarchy()
         {
             InitializeComponent();
@@ -73,44 +75,12 @@ namespace ACP
             return null;
         }
 
-        private void btnCreate_Click(object sender, EventArgs e)
-        {
-            string code = txtCode.Text.Trim();
-            string desc = txtDesc.Text.ToUpper();
-            string rtype = lbCode.Text;
-            string rid = cat.autoIncrementRid().ToString().Trim();
-            if (!string.IsNullOrEmpty(code) || !string.IsNullOrEmpty(desc))
-            {
-                int result = cat.insertCatHierarchy(rid, code, desc, rtype);
-                if (result != 1)
-                {
-                    PopulateTreeView();
-                    if (lastAddedNode != null)
-                    {
-                        tvCatHierarchy.SelectedNode = lastAddedNode;
-                        lastAddedNode.EnsureVisible();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Code is already exist", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please provide values for all fields.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            cleartext();
-        }
-        private void btnNewHierachy_Click(object sender, EventArgs e)
-        {
-           
-        }
         private void frmCatHierarchy_Load(object sender, EventArgs e)
         {
             rbYes.Enabled = false;
             rbNo.Enabled = false;
             tvCatHierarchy.Focus();
+           
         }
         private void tvCatHierarchy_DrawNode(object sender, DrawTreeNodeEventArgs e)
         {
@@ -136,49 +106,23 @@ namespace ACP
             rbNo.Enabled = false;
             cleartext();
         }
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            string code = txtCode.Text.Trim();
-            string desc = txtDesc.Text.ToUpper();
-            string rtype = lbCode.Text;
-            string rid = lbRID.Text;
-            if (!string.IsNullOrEmpty(code) && !string.IsNullOrEmpty(desc))
-            {
-                int result = cat.updateHierarchy(code, desc, rid, status);
-                if (result != 1)
-                {
-                    PopulateTreeView();
-                    rbYes.Enabled = false;
-                    rbNo.Enabled = false;
-                    cleartext();
-                }
-                else
-                {
-                    MessageBox.Show("Code is already exist", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-              }else 
-                {
-                    MessageBox.Show("Please provide values for all fields.","Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-        }
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             PopulateTreeView();
-            btnUpdate.Enabled = false;
-            btnCreate.Enabled = false;
             cleartext();
         }
   
         private void btEdit_Click(object sender, EventArgs e)
         {
+            btn.Text = "Update";
             try
             {
-                btnCreate.Enabled = false;
-                btnUpdate.Enabled = true;
+               
                 DataTable tbl = cat.fetchRecord(lbCode.Text);
                 foreach (DataRow row in tbl.Rows)
                 {
-                    txtCode.Text = row["code"].ToString();
+                 
+                    txtCode.Text = Regex.Replace(row["code"].ToString(), @"\s+", " ");
                     txtDesc.Text = row["desc"].ToString();
                     lbRID.Text = row["RID"].ToString();
                     int status = Convert.ToInt32(row["isActive"]);
@@ -202,26 +146,22 @@ namespace ACP
         }
         private void btDelete_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DialogResult result = MessageBox.Show("Are you sure you want to delete " + tvCatHierarchy.SelectedNode.Text + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    if (tvCatHierarchy.SelectedNode != null)
-                    {
-                        cat.deleteCatHierarchy(lbCode.Text);
-                        tvCatHierarchy.SelectedNode.Remove();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please Select the node before removal.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            string code = lbCode.Text.Trim();
+            string desc = txtDesc.Text.ToUpper();
+            string rtype = lbCode.Text;
+            string ID = lbRID.Text;
+          
+
+              DialogResult result = MessageBox.Show("Are you sure you want to perform this action?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+              if (result == DialogResult.Yes)
+              {
+                  cat.CatHierarchyCrud(ID, code, desc, rtype, status, code);
+                  tvCatHierarchy.SelectedNode.Remove();
+                
+
+              }
+
         }
         private void rbYes_CheckedChanged(object sender, EventArgs e)
         {
@@ -240,9 +180,7 @@ namespace ACP
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            btnCreate.Enabled = true;
-            btnUpdate.Enabled = false;
-
+            btn.Text = "Create";
             rbYes.Enabled = false;
             rbNo.Enabled = false;
             cleartext();
@@ -252,9 +190,103 @@ namespace ACP
         private void btnRefresh_Click_1(object sender, EventArgs e)
         {
             PopulateTreeView();
-            btnUpdate.Enabled = false;
-            btnCreate.Enabled = false;
             cleartext();
+        }
+
+        private void txtCode_TextChanged(object sender, EventArgs e)
+        {
+          
+            string code = txtCode.Text;
+            string ID = lbRID.Text;
+            errorProvider1.Clear();
+            btn.Enabled = true;
+            DataTable dt = cat.CheckRecord(code, ID);
+            foreach (DataRow item in dt.Rows)
+            {
+                string lbl = Regex.Replace(item["code"].ToString(), @"\s+", " ");
+                if (lbl== code)
+                {
+                    btn.Enabled = true;
+                }
+                else {
+                    errorProvider1.SetError(txtCode,"Code is Already Exist");
+                    btn.Enabled = false;
+                }
+            
+            }
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            string action = btn.Text;
+            string code = txtCode.Text;
+            string desc = txtDesc.Text;
+            string rtype = lbCode.Text;
+            string rid = cat.autoIncrementRid().ToString().Trim();
+            string ID = lbRID.Text;
+            DataTable dt = cat.CheckRecord(code, ID);
+            string cap = txtInfo.ToTitleCase(desc);
+            if (action.Equals("Create"))
+            {
+               //Start
+
+                if (!string.IsNullOrEmpty(code) && !string.IsNullOrEmpty(desc))
+                {
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        // errorProvider1.SetError(txtCode, "Code already exist");
+                        MessageBox.Show("Code is Already Exist", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+                    else
+                    {
+                        cat.CatHierarchyCrud(rid, code, cap, rtype, status, "");
+                        PopulateTreeView();
+                        if (lastAddedNode != null)
+                        {
+                            tvCatHierarchy.SelectedNode = lastAddedNode;
+                            lastAddedNode.EnsureVisible();
+                        }
+                        cleartext();
+                       
+
+                    }
+                }else{
+
+                    MessageBox.Show("Please provde values for all fields.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+               //End
+            }
+            else if (action.Equals("Update"))
+            {
+                if (!string.IsNullOrEmpty(code) && !string.IsNullOrEmpty(desc))
+                     {
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        MessageBox.Show("Code is Already Exist", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        cat.CatHierarchyCrud(ID, code, cap, rtype, status, lbCode.Text);
+                        PopulateTreeView();
+                        rbNo.Enabled = false;
+                        rbYes.Enabled = false;
+                        cleartext();
+                    }
+                }
+                else {
+                    MessageBox.Show("Please provde values for all fields.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            } 
+
+        }
+
+        private void txtCode_KeyPress(object sender, KeyPressEventArgs e) {
+           
+          
         }
     }
      

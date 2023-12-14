@@ -8,6 +8,8 @@ namespace ACP
     public class CatHierarchyClass
     {
         dbClass db = new dbClass();
+        public static string code = "",rid = "";
+        
         public DataTable fetchCatHierarchy()
         {
             return db.getRecord("sp_catHierarchy 'FETCHDATA'");
@@ -16,68 +18,44 @@ namespace ACP
         {
             return db.getRecord("sp_catHierarchy 'FETCHRECORD', '" + code + "'");
         }
-
-        public void deleteCatHierarchy(string code)
+        public DataTable CheckRecord(string code, string rid)
         {
-            db.selectRecord("sp_catHierarchy 'DELETE', '" + code + "'");
+            return db.getRecord("SELECT code,RID from vwCatHierarchy WHERE code = '" + code + "' AND RID != '" + rid + "'");
         }
        public int autoIncrementRid()
        {
            int currentMaxValue = 0;
-           currentMaxValue = db.autoIncrement("SELECT ISNULL(MAX(RID), 0) FROM categoryHierarchy");
+           currentMaxValue = db.autoIncrement("SELECT COUNT(*) FROM categoryHierarchy;");
            return currentMaxValue;
        }
-       public int insertCatHierarchy(string rid, string code, string desc, string rtype)
+       public void CatHierarchyCrud(string rid, string code, string desc, string rtype,int status, string code2)
        {
-           int result = 0;
            try
            {
-               //result = db.setRecord("sp_catHierarchy 'INSERT','" + code + "','" + rid + "','" + desc + "','" + rtype + "','WI'");
                SqlConnection conn = db.getConnection();
                conn.Open();
                SqlCommand cmd = new SqlCommand("sp_catHierarchy", conn);
                cmd.CommandType = CommandType.StoredProcedure;
-               cmd.Parameters.AddWithValue("@Action", "INSERT");
+               cmd.Parameters.AddWithValue("@Action", "CRUD");
                cmd.Parameters.AddWithValue("@Code", code);
                cmd.Parameters.AddWithValue("@Rid", rid);
                cmd.Parameters.AddWithValue("@Desc", desc);
                cmd.Parameters.AddWithValue("@rtype", rtype);
                cmd.Parameters.AddWithValue("@process", "WI");
-               result = (int)cmd.ExecuteScalar();
+               cmd.Parameters.AddWithValue("@status", status);
+               cmd.Parameters.AddWithValue("@Code2", code2);
+               cmd.ExecuteNonQuery();
                conn.Close();
-
            }
            catch (Exception ex)
            {
                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
            }
-           return result;
+          
        }
 
-        public int updateHierarchy(string code, string desc,string rid,int status) {
-            int result = 0;
-            try
-            {
-               // result = db.setRecord("sp_catHierarchy 'UPDATE','" + code + "','" + rid + "','" + desc + "','','WI','" + status + "'");
-                SqlConnection conn = db.getConnection();
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("sp_catHierarchy", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Action", "UPDATE");
-                cmd.Parameters.AddWithValue("@Code", code);
-                cmd.Parameters.AddWithValue("@Rid", rid);
-                cmd.Parameters.AddWithValue("@Desc", desc);
-                cmd.Parameters.AddWithValue("@process", "WI");
-                cmd.Parameters.AddWithValue("@status", status);
-                result = (int)cmd.ExecuteScalar();
-                conn.Close();
+      
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return result;
-        }
+      
     }
 }
