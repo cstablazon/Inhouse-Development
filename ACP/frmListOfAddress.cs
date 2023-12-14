@@ -16,7 +16,6 @@ namespace ACP
         public frmListOfAddress()
         {
             InitializeComponent();
-            fetchAddress();
         }
 
         public void address()
@@ -32,10 +31,7 @@ namespace ACP
         {
             address();
         }
-        public void fetchAddress()
-        {
-            
-        }
+     
 
         private void dgvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

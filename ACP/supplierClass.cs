@@ -8,6 +8,7 @@ namespace ACP
 {
     public class supplierClass
     {
+        public static string FetchStatus = "";
         dbClass db = new dbClass();
         public DataTable fetchRecord() {
             return db.getRecord("select * from vwSupplier");
@@ -21,7 +22,10 @@ namespace ACP
             return db.getRecord("select * from purpose");
         }
 
+        public DataTable fetch_contact() {
 
+            return db.getRecord("select * from contactInfo");
+        }
         //Address CRUD Operation
         public int addressID() {
             int currentMaxValue = 0;
@@ -119,6 +123,8 @@ namespace ACP
             }
         }
 
+       
+
 
         //Delete supplier address
         public void delete_suppAddress(string suppID, string addressID)
@@ -145,11 +151,7 @@ namespace ACP
         }
 
         public DataTable getSuppByID(string suppID) {
-
-
             return db.getRecord("Select * from fc_sPInfo('"+suppID+"')");
-             
-        
         }
 
         //Record Type CRUD

@@ -33,6 +33,7 @@
             this.tvCatHierarchy = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.rbYes = new System.Windows.Forms.RadioButton();
             this.txtCode = new System.Windows.Forms.TextBox();
@@ -40,8 +41,6 @@
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnCreate = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.lbCode = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -53,9 +52,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.sidebar = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.sidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tvCatHierarchy
@@ -90,15 +91,29 @@
             this.groupBox1.Controls.Add(this.txtDesc);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.btnCreate);
-            this.groupBox1.Controls.Add(this.btnUpdate);
+            this.groupBox1.Controls.Add(this.btn);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(363, 100);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(490, 205);
+            this.groupBox1.Size = new System.Drawing.Size(490, 240);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General";
+            // 
+            // btn
+            // 
+            this.btn.BackColor = System.Drawing.SystemColors.Control;
+            this.btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn.FlatAppearance.BorderSize = 0;
+            this.btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btn.Location = new System.Drawing.Point(376, 118);
+            this.btn.Name = "btn";
+            this.btn.Size = new System.Drawing.Size(75, 36);
+            this.btn.TabIndex = 14;
+            this.btn.Text = "Create";
+            this.btn.UseVisualStyleBackColor = false;
+            this.btn.Click += new System.EventHandler(this.btn_Click);
             // 
             // label4
             // 
@@ -131,6 +146,8 @@
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(342, 27);
             this.txtCode.TabIndex = 0;
+            this.txtCode.TextChanged += new System.EventHandler(this.txtCode_TextChanged);
+            this.txtCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCode_KeyPress);
             // 
             // rbNo
             // 
@@ -173,38 +190,6 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Code:";
             // 
-            // btnCreate
-            // 
-            this.btnCreate.BackColor = System.Drawing.SystemColors.Control;
-            this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCreate.Enabled = false;
-            this.btnCreate.FlatAppearance.BorderSize = 0;
-            this.btnCreate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnCreate.Location = new System.Drawing.Point(295, 143);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 36);
-            this.btnCreate.TabIndex = 8;
-            this.btnCreate.Text = "Create";
-            this.btnCreate.UseVisualStyleBackColor = false;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.SystemColors.Control;
-            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdate.Enabled = false;
-            this.btnUpdate.FlatAppearance.BorderSize = 0;
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnUpdate.Location = new System.Drawing.Point(376, 143);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 36);
-            this.btnUpdate.TabIndex = 13;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
             // lbCode
             // 
             this.lbCode.AutoSize = true;
@@ -213,6 +198,7 @@
             this.lbCode.Size = new System.Drawing.Size(35, 13);
             this.lbCode.TabIndex = 12;
             this.lbCode.Text = "NULL";
+            this.lbCode.Visible = false;
             // 
             // panel1
             // 
@@ -294,11 +280,12 @@
             // lbRID
             // 
             this.lbRID.AutoSize = true;
-            this.lbRID.Location = new System.Drawing.Point(736, 84);
+            this.lbRID.Location = new System.Drawing.Point(688, 84);
             this.lbRID.Name = "lbRID";
             this.lbRID.Size = new System.Drawing.Size(26, 13);
             this.lbRID.TabIndex = 34;
             this.lbRID.Text = "RID";
+            this.lbRID.Visible = false;
             // 
             // panel3
             // 
@@ -327,6 +314,10 @@
             this.panel2.Size = new System.Drawing.Size(2, 463);
             this.panel2.TabIndex = 44;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmCatHierarchy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,6 +340,7 @@
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.sidebar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,12 +358,9 @@
         private System.Windows.Forms.RadioButton rbNo;
         private System.Windows.Forms.RadioButton rbYes;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbCode;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Label lbRID;
         private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.Button btEdit;
         private System.Windows.Forms.Button btnAdd;
@@ -379,5 +368,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel sidebar;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        public System.Windows.Forms.Label lbRID;
+        private System.Windows.Forms.Button btn;
     }
 }
