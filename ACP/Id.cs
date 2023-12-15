@@ -8,6 +8,6 @@ namespace ACP
 {
     class Id
     {
-        public static string suppID, addressID, rTypeID, description, address, date_created;
+        public static string suppID, addressID, rTypeID, description, address, date_created ,button;
     }
 }
